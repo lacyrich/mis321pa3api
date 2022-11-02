@@ -1,4 +1,4 @@
-namespace mis321pa3.api
+namespace mis321pa3api.api
 {
     public class ConnectionString
     {
