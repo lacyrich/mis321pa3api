@@ -5,6 +5,7 @@ namespace mis321pa3api.api.database
 {
     public class UpdateDriverRating : IUpdateDriverRating
     {
+        //edit driver rating
         void IUpdateDriverRating.UpdateDriverRating(int id)
         {
             ConnectionString myConnection = new ConnectionString();

@@ -6,6 +6,7 @@ namespace mis321pa3api.api.database
 {
     public class CreateDriver : ICreateDriver
     {
+        //hire driver
        void ICreateDriver.CreateDriver(Driver myDriver)
         {
             ConnectionString myConnection = new ConnectionString();

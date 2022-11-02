@@ -6,6 +6,7 @@ namespace mis321pa3api.api.DataAccess
     {
         public List<Driver> GetAll()
         {
+            //show all drivers
             List<Driver> drivers = new List<Driver>();
             ConnectionString connectionString = new ConnectionString();
             string cs = connectionString.cs;
