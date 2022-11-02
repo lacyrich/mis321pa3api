@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\mis321pa3.csproj": {}
+    "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\api\\mis321pa3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\mis321pa3.csproj": {
+    "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\api\\mis321pa3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\mis321pa3.csproj",
+        "projectUniqueName": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\api\\mis321pa3.csproj",
         "projectName": "mis321pa3",
-        "projectPath": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\mis321pa3.csproj",
+        "projectPath": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\api\\mis321pa3.csproj",
         "packagesPath": "C:\\Users\\lacyr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\obj\\",
+        "outputPath": "C:\\Users\\lacyr\\source\\repos\\MIS321\\mis321pa3\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
