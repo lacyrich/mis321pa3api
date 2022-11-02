@@ -13,7 +13,7 @@ namespace mis321pa3api.api.DataAccess
             MySqlConnection con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT * from drivers";
+            string stm = @"SELECT * from drivers";
 
             MySqlCommand cmd = new MySqlCommand(stm, con);
             MySqlDataReader rdr = cmd.ExecuteReader();

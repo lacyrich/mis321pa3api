@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,8 +32,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors("OpenPolicy");
+
 app.MapControllers();
 
 app.Run();
 
-app.UseCors("OpenPolicy");
+
