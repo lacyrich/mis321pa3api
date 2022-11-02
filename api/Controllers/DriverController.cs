@@ -19,15 +19,16 @@ namespace mis321pa3api.api.Controllers
         [HttpGet]
         public List<Driver> Get()  //Show all drivers
         {
-            DriverDataAccess dataAccess = new DriverDataAccess();
-            return dataAccess.GetAll();
+            IGetAll readObject = new DriverDataAccess();
+            return readObject.GetAll();
         }
 
         // GET: api/Driver/ //get 1 //won't need //how you pass things in on url//actually might need after all
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
-            return "value";
+            IGetDriver readObject = new DriverDataAccess();
+            return readObject.GetDriver(id);
         }
 
         // POST: api/Driver //create //hire driver
