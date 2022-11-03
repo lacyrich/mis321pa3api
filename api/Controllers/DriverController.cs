@@ -25,7 +25,7 @@ namespace mis321pa3api.api.Controllers
 
         // GET: api/Driver/ //get 1 //won't need //how you pass things in on url//actually might need after all
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Driver Get(int id)
         {
             IGetDriver readObject = new DriverDataAccess();
             return readObject.GetDriver(id);
