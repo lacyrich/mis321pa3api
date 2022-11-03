@@ -62,7 +62,7 @@ namespace mis321pa3api.api.DataAccess
                     Deleted = rdr.GetInt32(4)
                 };
                 drivers.Add(newDriver);
-                return new Driver();
+                return newDriver;
             //return new Driver() {rdr.GetInt32(0) + " " + rdr.GetString(1)+ " " + rdr.GetInt32(2)+ " " + rdr.GetDateTime(3) + " " + rdr.GetInt32(4)};
         }
     }
