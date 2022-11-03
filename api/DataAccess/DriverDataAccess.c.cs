@@ -17,8 +17,8 @@ namespace mis321pa3api.api.DataAccess
 
             string stm = @"SELECT * from drivers";
 
-            MySqlCommand cmd = new MySqlCommand(stm, con);
-            MySqlDataReader rdr = cmd.ExecuteReader();
+            using MySqlCommand cmd = new MySqlCommand(stm, con);
+            using MySqlDataReader rdr = cmd.ExecuteReader();
 
             List<Driver> allDrivers = new List<Driver>();
             while(rdr.Read())
@@ -26,9 +26,9 @@ namespace mis321pa3api.api.DataAccess
                 allDrivers.Add(new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)});
             }
 
+            con.Close();
             return allDrivers;
 
-            con.Close();
         }
 
         public Driver GetDriver(int id){
@@ -46,9 +46,10 @@ namespace mis321pa3api.api.DataAccess
             cmd.ExecuteNonQuery();
             
             rdr.Read();
+            con.Close();
             return new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)};
 
-            con.Close();
+            
         }
     }
 
