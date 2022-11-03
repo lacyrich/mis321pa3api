@@ -33,11 +33,10 @@ namespace mis321pa3api.api.Controllers
 
         // POST: api/Driver //create //hire driver
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Driver value)
         {
-            Driver myDriver = new Driver();
             ICreateDriver hireDriver = new CreateDriver();
-            hireDriver.CreateDriver(myDriver);
+            hireDriver.CreateDriver(value);
         }
 
         // PUT: api/Driver/5 //edit driver rating
