@@ -27,6 +27,8 @@ namespace mis321pa3api.api.DataAccess
             }
 
             return allDrivers;
+
+            con.Close();
         }
 
         public Driver GetDriver(int id){
@@ -45,6 +47,8 @@ namespace mis321pa3api.api.DataAccess
             
             rdr.Read();
             return new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)};
+
+            con.Close();
         }
     }
 

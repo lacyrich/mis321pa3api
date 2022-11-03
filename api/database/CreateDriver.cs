@@ -26,6 +26,8 @@ namespace mis321pa3api.api.database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+
+            con.Close();
         }
     }
     
