@@ -1,6 +1,6 @@
 using mis321pa3api.api.models;
 using mis321pa3api.api.interfaces;
-using System.Collections.IEnumerable;
+using static System.Collections.IEnumerable;
 using MySql.Data.MySqlClient;
 namespace mis321pa3api.api.DataAccess
 {
