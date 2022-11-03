@@ -10,7 +10,11 @@ namespace mis321pa3api.api.models
         public int Rating {get; set;}
         public System.DateTime DateHired {get; set;}
         public int Deleted {get; set;}
-
+        
+        public override string ToString()
+        {
+            return (ID + " " + DriverName + " " + Rating + " " + DateHired + " " + Deleted);
+        }
         public Driver(){
             DriverName = "";
             Rating = 0;
@@ -18,9 +22,6 @@ namespace mis321pa3api.api.models
             Deleted = 0;
         }
 
-        public override string ToString()
-        {
-            return (ID + " " + DriverName + " " + Rating + " " + DateHired + " " + Deleted);
-        }
+       
     }
 }
