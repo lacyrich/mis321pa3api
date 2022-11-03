@@ -1,6 +1,5 @@
 using mis321pa3api.api.models;
 using mis321pa3api.api.interfaces;
-using static System.Collections.IEnumerable;
 using MySql.Data.MySqlClient;
 namespace mis321pa3api.api.DataAccess
 {
@@ -53,7 +52,7 @@ namespace mis321pa3api.api.DataAccess
             cmd.ExecuteNonQuery();
             
             rdr.Read();
-            return new Driver() {rdr.GetInt32(0) + " " + rdr.GetString(1)+ " " + rdr.GetInt32(2)+ " " + rdr.GetDateTime(3) + " " + rdr.GetInt32(4)};
+            return new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)};
         }
     }
 
