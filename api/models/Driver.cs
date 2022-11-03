@@ -18,5 +18,9 @@ namespace mis321pa3api.api.models
             Deleted = 0;
         }
 
+        public override string ToString()
+        {
+            return (ID + " " + DriverName + " " + Rating + " " + DateHired + " " + Deleted);
+        }
     }
 }
