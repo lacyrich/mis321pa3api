@@ -52,18 +52,7 @@ namespace mis321pa3api.api.DataAccess
             cmd.ExecuteNonQuery();
             
             rdr.Read();
-            System.Console.WriteLine(rdr.GetInt32(0) + " " + rdr.GetString(1)+ " " + rdr.GetInt32(2)+ " " + rdr.GetDateTime(3) + " " + rdr.GetInt32(4));
-                Driver newDriver = new Driver()
-                {
-                    ID = rdr.GetInt32(0),
-                    DriverName = rdr.GetString(1),
-                    Rating = rdr.GetInt32(2),
-                    DateHired = rdr.GetDateTime(3),
-                    Deleted = rdr.GetInt32(4)
-                };
-                drivers.Add(newDriver);
-                return newDriver;
-            //return new Driver() {rdr.GetInt32(0) + " " + rdr.GetString(1)+ " " + rdr.GetInt32(2)+ " " + rdr.GetDateTime(3) + " " + rdr.GetInt32(4)};
+            return new Driver() {rdr.GetInt32(0) + " " + rdr.GetString(1)+ " " + rdr.GetInt32(2)+ " " + rdr.GetDateTime(3) + " " + rdr.GetInt32(4)};
         }
     }
 
