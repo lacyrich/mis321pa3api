@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using mis321pa3api.api.models;
 using mis321pa3api.api.DataAccess;
@@ -16,7 +17,8 @@ namespace mis321pa3api.api.Controllers
     public class DriverController : ControllerBase
     {
         // GET: api/Driver
-        [HttpGet]
+        [HttpGet(Name="GetDrivers")]
+        [EnableCors("OpenPolicy")]
         public List<Driver> Get()  //Show all drivers
         {
             IGetAll readObject = new DriverDataAccess();
@@ -24,7 +26,8 @@ namespace mis321pa3api.api.Controllers
         }
 
         // GET: api/Driver/ //get 1 //won't need //how you pass things in on url//actually might need after all
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetDriver")]
+        [EnableCors("OpenPolicy")]
         public Driver Get(int id)
         {
             IGetDriver readObject = new DriverDataAccess();
@@ -32,7 +35,8 @@ namespace mis321pa3api.api.Controllers
         }
 
         // POST: api/Driver //create //hire driver
-        [HttpPost]
+        [HttpPost( Name = "CreateDriver")]
+        [EnableCors("OpenPolicy")]
         public void Post([FromBody] Driver value)
         {
             ICreateDriver hireDriver = new CreateDriver();
@@ -40,7 +44,8 @@ namespace mis321pa3api.api.Controllers
         }
 
         // PUT: api/Driver/5 //edit driver rating
-        [HttpPut("{id}")]
+        [HttpPut( Name = "EditDriver")]
+        [EnableCors("OpenPolicy")]
         public void Put(Driver driver)
         {
             IUpdateDriverRating editRating = new UpdateDriverRating();
@@ -48,7 +53,8 @@ namespace mis321pa3api.api.Controllers
         }
 
         // DELETE: api/Driver/5 //fire driver
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name="DeleteDriver")]
+        [EnableCors("OpenPolicy")]
         public void Delete(int id)
         {
             IDeleteDriver fireDriver = new DeleteDriver();

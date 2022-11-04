@@ -11,7 +11,9 @@ namespace mis321pa3api.api.database
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);
+            if (con.State == System.Data.ConnectionState.Closed) {
             con.Open();
+            }
 
             string stm = @"UPDATE drivers SET isDeleted = 1 WHERE id = @id";
 
@@ -23,7 +25,6 @@ namespace mis321pa3api.api.database
             
             cmd.ExecuteNonQuery();
 
-            con.Close();
         }
         
         

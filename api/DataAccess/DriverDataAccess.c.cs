@@ -12,8 +12,10 @@ namespace mis321pa3api.api.DataAccess
             ConnectionString connectionString = new ConnectionString();
             string cs = connectionString.cs;
 
-            MySqlConnection con = new MySqlConnection(cs);
+            using MySqlConnection con = new MySqlConnection(cs);
+            if (con.State == System.Data.ConnectionState.Closed) {
             con.Open();
+            }
 
             string stm = @"SELECT * from drivers";
 
@@ -26,7 +28,7 @@ namespace mis321pa3api.api.DataAccess
                 allDrivers.Add(new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)});
             }
 
-            con.Close();
+            
             return allDrivers;
 
         }
@@ -35,18 +37,18 @@ namespace mis321pa3api.api.DataAccess
             ConnectionString connectionString = new ConnectionString();
             string cs = connectionString.cs;
 
-            MySqlConnection con = new MySqlConnection(cs);
+            using MySqlConnection con = new MySqlConnection(cs);
+            if (con.State == System.Data.ConnectionState.Closed) {
             con.Open();
+            }
 
             string stm = @"SELECT * from drivers where id = @id";
             using var cmd = new MySqlCommand(stm, con);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            cmd.ExecuteNonQuery();
+            using MySqlDataReader rdr = cmd.ExecuteReader();
             
             rdr.Read();
-            con.Close();
             return new Driver(){ID = rdr.GetInt32(0), DriverName = rdr.GetString(1), Rating = rdr.GetInt32(2), DateHired = rdr.GetDateTime(3), Deleted = rdr.GetInt32(4)};
 
             

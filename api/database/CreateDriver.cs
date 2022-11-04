@@ -12,7 +12,9 @@ namespace mis321pa3api.api.database
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);
+            if (con.State == System.Data.ConnectionState.Closed) {
             con.Open();
+            }
 
             string stm = @"INSERT INTO drivers(driverName, rating, dateHired, isDeleted) VALUES(@driverName, @rating, @dateHired, @isDeleted)";
 
@@ -27,7 +29,7 @@ namespace mis321pa3api.api.database
             
             cmd.ExecuteNonQuery();
 
-            con.Close();
+          
         }
     }
     
