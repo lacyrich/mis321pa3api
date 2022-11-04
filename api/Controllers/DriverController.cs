@@ -44,7 +44,7 @@ namespace mis321pa3api.api.Controllers
         public void Put(int id, [FromBody] Driver value)
         {
             IUpdateDriverRating editRating = new UpdateDriverRating();
-            editRating.UpdateDriverRating(id);
+            editRating.UpdateDriverRating(value);
         }
 
         // DELETE: api/Driver/5 //fire driver
