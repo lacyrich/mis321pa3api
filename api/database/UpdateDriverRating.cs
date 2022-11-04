@@ -14,11 +14,15 @@ namespace mis321pa3api.api.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"UPDATE drivers SET rating = 5 WHERE id = @id";
+            string stm = @"UPDATE drivers SET driverName = @driverName, rating = @rating, dateHired = @dateHired, isDeleted = @deleted WHERE id = @id";
 
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.Parameters.AddWithValue("@id", driver.ID);
+            cmd.Parameters.AddWithValue("@driverName", driver.DriverName);
+            cmd.Parameters.AddWithValue("@rating", driver.Rating);
+            cmd.Parameters.AddWithValue("@dateHired", driver.DateHired);
+            cmd.Parameters.AddWithValue("@deleted", driver.Deleted);
 
             cmd.Prepare();
             
