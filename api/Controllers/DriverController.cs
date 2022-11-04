@@ -41,10 +41,10 @@ namespace mis321pa3api.api.Controllers
 
         // PUT: api/Driver/5 //edit driver rating
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Driver driver)
         {
             IUpdateDriverRating editRating = new UpdateDriverRating();
-            editRating.UpdateDriverRating(id);
+            editRating.UpdateDriverRating(driver);
         }
 
         // DELETE: api/Driver/5 //fire driver
