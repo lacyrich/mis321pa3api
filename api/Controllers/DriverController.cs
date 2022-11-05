@@ -25,7 +25,7 @@ namespace mis321pa3api.api.Controllers
             return readObject.GetAll();
         }
 
-        // GET: api/Driver/ //get 1 //won't need //how you pass things in on url//actually might need after all
+        // GET: api/Driver/ //how you pass things on url
         [HttpGet("{id}", Name = "GetDriver")]
         [EnableCors("OpenPolicy")]
         public Driver Get(int id)
